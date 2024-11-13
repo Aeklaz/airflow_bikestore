@@ -16,6 +16,8 @@ services:
 
   airflow_pipeline:
     image: airflow_bikestore
+    
+    user: root
 
     volumes:
       - ./airflow:/opt/airflow

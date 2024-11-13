@@ -1,1 +1,8 @@
 .env
+/env
+*/logs
+*/profiles.yml
+*/taget
+*.user.yml
+/postgres-data
+airflow/standalone_admin_password.txt
