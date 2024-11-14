@@ -1,0 +1,11 @@
+
+streams:
+  - production.products
+  - production.brands
+  - production.categories
+  - production.stocks
+  - sales.customers
+  - sales.order_items
+  - sales.orders
+  - sales.staffs
+  - sales.stores

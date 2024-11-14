@@ -10,7 +10,7 @@ SELECT
     e.store_id,
     e.manager_id,
     CONCAT(m.first_name, ' ', m.last_name) AS manager_name,
-FROM {{source('bikestore_raw', 'staffs_raw')}} e
-LEFT JOIN {{source('bikestore_raw', 'staffs_raw')}} m
+FROM {{source('bikestore_raw', 'staffs')}} e
+LEFT JOIN {{source('bikestore_raw', 'staffs')}} m
 ON e.manager_id = m.staff_id
 ORDER BY e.staff_id

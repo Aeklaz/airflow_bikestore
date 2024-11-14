@@ -7,4 +7,4 @@ SELECT
     order_date,
     required_date,
     shipped_date
-FROM {{source('bikestore_raw', 'orders_raw')}}
+FROM {{source('bikestore_raw', 'orders')}}
