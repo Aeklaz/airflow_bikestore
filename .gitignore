@@ -1,8 +1,34 @@
+# Environment files
 .env
 /env
-*/logs
-*/profiles.yml
-*/taget
-*.user.yml
-/postgres-data
+
+# Log files
+**/logs/
+
+# Configuration files
+**/profiles.yml
+**/*.user.yml
+
+# Target directories (e.g., build artifacts or output folders)
+**/target/
+
+# Database data directories
+postgres-data/
+
+# Airflow-specific files
 airflow/standalone_admin_password.txt
+
+# Python cache files
+**/__pycache__/
+**/*.py[cod]
+airflow/**/__pycache__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

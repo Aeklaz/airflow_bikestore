@@ -38,14 +38,6 @@ def ingest_data():
     replication.run()
 
 
-dbt_path = "/opt/dbt"
-manifest_path = "/opt/dbt/target/manifest.json"
-
-with open(manifest_path) as f:
-    manifest = json.load(f)
-    nodes = manifest["nodes"]
-
-
 dag =  DAG(
     dag_id = "dbt_sling_dag",
     start_date=pendulum.today(),
@@ -58,8 +50,13 @@ sling_task = PythonOperator(
     dag=dag,
 )
 
-bash_command=f"cd {dbt_path} && dbt run --profiles-dir ." # run the model
+#manifest_path = "/opt/dbt/target/manifest.json"
+#with open(manifest_path) as f:
+#    manifest = json.load(f)
+#    nodes = manifest["nodes"]
 
+dbt_path = "/opt/dbt"
+bash_command=f"cd {dbt_path} && dbt run --profiles-dir ." # run the model
 
 dbt_task = BashOperator(
     task_id='dbt_run',
