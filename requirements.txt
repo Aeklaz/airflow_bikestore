@@ -2,3 +2,4 @@ apache-airflow
 dbt-core
 dbt-duckdb
 sling
+python-dotenv

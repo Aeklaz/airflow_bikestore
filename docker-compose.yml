@@ -26,6 +26,9 @@ services:
       - ./airflow:/opt/airflow
       - ./dbt_bikestore:/opt/dbt
 
+    env_file:
+      - path: .env
+
     ports:
       - "8080:8080"
 
