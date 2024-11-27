@@ -3,3 +3,4 @@ dbt-core
 dbt-duckdb
 sling
 python-dotenv
+boto3

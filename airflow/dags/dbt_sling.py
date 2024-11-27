@@ -5,6 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 from plugins.ingest_data import ingest_data
+from plugins.backup_duckdb_to_s3 import backup_duckdb_to_s3
 
 
 dag =  DAG(
@@ -30,6 +31,12 @@ dbt_task = BashOperator(
     dag=dag
 )
 
-sling_task >> dbt_task
+backup_task = PythonOperator(
+    task_id='backup_to_s3',
+    python_callable=backup_duckdb_to_s3,
+    dag=dag
+)
+
+sling_task >> dbt_task >> backup_task
 
 
