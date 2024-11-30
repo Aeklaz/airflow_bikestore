@@ -10,7 +10,7 @@ def backup_duckdb_to_s3():
     Requires AWS credentials and environment variables:
     - DUCKDB_BACKUP_PATH: Local path to the DuckDB database
     - S3_BACKUP_BUCKET: S3 bucket name for backups
-    - S3_BACKUP_PREFIX: Optional S3 prefix/folder (default: 'duckdb_backups/')
+    - S3_BACKUP_PREFIX: Optional S3 prefix/folder 
     """
     # Configure logging
     logging.basicConfig(level=logging.INFO, 

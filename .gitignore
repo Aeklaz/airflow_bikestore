@@ -19,9 +19,14 @@ postgres-data/
 airflow/standalone_admin_password.txt
 
 # Python cache files
+# Ignore Python bytecode
+__pycache__/
 **/__pycache__/
-**/*.py[cod]
-airflow/**/__pycache__/
+
+# Other common files to ignore
+*.pyc
+*.pyo
+*.pyd
 
 # System files
 .DS_Store

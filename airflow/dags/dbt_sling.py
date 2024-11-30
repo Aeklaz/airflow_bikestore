@@ -22,6 +22,7 @@ sling_task = PythonOperator(
 )
 
 
+# Set dbt command to run inside the container
 dbt_path = "/opt/dbt"
 bash_command=f"cd {dbt_path} && dbt run --profiles-dir ." # run the model
 
@@ -31,6 +32,7 @@ dbt_task = BashOperator(
     dag=dag
 )
 
+# Set the backup task to upload a copy of duckdb database with timestamp to s3
 backup_task = PythonOperator(
     task_id='backup_to_s3',
     python_callable=backup_duckdb_to_s3,
