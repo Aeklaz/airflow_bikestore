@@ -32,6 +32,8 @@ airflow_bikestore/
 
 In our profiles.yml for dbt-duckdb, We configure the connection to DuckDB by specifying the profile name and target, along with connection details. We use the type as duckdb, and define the path to our DuckDB database file, This configuration allows dbt to connect to our DuckDB database for running transformations and models.
 
+The tables are denormalized and the relations are transformed into star-schema dimentions and fact table
+![Star-schema Diagram](./img/star_data_eng_pocket.png)
 
 
 
