@@ -7,4 +7,4 @@ SELECT
     city,
     state,
     zip_code
-FROM {{source('bikestore_raw', 'customers')}}
+FROM {{source('bikestore_sales_raw', 'customers')}}

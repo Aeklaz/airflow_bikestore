@@ -1,19 +1,30 @@
 version: 2
 
 sources:
-  - name: bikestore_raw
+  - name: bikestore_production_raw
     schema: production
+    description: "Raw production data for bicycle product information."
     tables:
       - name: brands
+        description: "Details about bicycle brands, including manufacturer information."
       - name: categories
+        description: "Classification of bicycle products into various categories."
       - name: products
+        description: "Comprehensive details about bicycle products, including specifications and pricing."
       - name: stocks
+        description: "Tracks inventory levels of products across various stores."
 
-  - name: bikestore_raw
+  - name: bikestore_sales_raw
     schema: sales
+    description: "Raw sales and customer interaction data."
     tables:
       - name: customers
+        description: "Customer profiles, including contact information."
       - name: order_items
+        description: "Individual line items for each sales order, tracking product, quantity, and pricing."
       - name: orders
+        description: "Sales order details, including customer, store, staff, and order status."
       - name: staffs
+        description: "Information about store employees and their management relationships."
       - name: stores
+        description: "Details of store locations, including contact information."

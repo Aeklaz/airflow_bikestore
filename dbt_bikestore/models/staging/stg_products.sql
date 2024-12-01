@@ -1,2 +1,2 @@
 SELECT * 
-FROM {{source('bikestore_raw', 'products')}}
+FROM {{source('bikestore_production_raw', 'products')}}
