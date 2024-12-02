@@ -1,56 +1,92 @@
----
-title: Welcome to Evidence
----
+# This is bikestore data pipeline dashboard!
 
-<Details title='How to edit this page'>
-
-  This page can be found in your project at `/pages/index.md`. Make a change to the markdown file and save it to see the change take effect in your browser.
-</Details>
-
-```sql categories
-  select
-      category
-  from needful_things.orders
-  group by category
+## Revenue per day chart 
+```sql revenue_by_day
+SELECT * FROM analytics.revenue_by_day
 ```
+<DataTable data={revenue_by_day} /> 
 
-<Dropdown data={categories} name=category value=category>
-    <DropdownOption value="%" valueLabel="All Categories"/>
-</Dropdown>
-
-<Dropdown name=year>
-    <DropdownOption value=% valueLabel="All Years"/>
-    <DropdownOption value=2019/>
-    <DropdownOption value=2020/>
-    <DropdownOption value=2021/>
-</Dropdown>
-
-```sql orders_by_category
-  select 
-      date_trunc('month', order_datetime) as month,
-      sum(sales) as sales_usd,
-      category
-  from needful_things.orders
-  where category like '${inputs.category.value}'
-  and date_part('year', order_datetime) like '${inputs.year.value}'
-  group by all
-  order by sales_usd desc
-```
-
-<BarChart
-    data={orders_by_category}
-    title="Sales by Month, {inputs.category.label}"
-    x=month
-    y=sales_usd
-    series=category
+<AreaChart data={revenue_by_day} 
+x="order_date" 
+y="daily_revenue"
+title="Sales per day"
 />
 
-## What's Next?
-- [Connect your data sources](settings)
-- Edit/add markdown files in the `pages` folder
-- Deploy your project with [Evidence Cloud](https://evidence.dev/cloud)
+## Revenue per week chart
+```sql revenue_by_week
+SELECT * FROM analytics.revenue_by_week
+```
 
-## Get Support
-- Message us on [Slack](https://slack.evidence.dev/)
-- Read the [Docs](https://docs.evidence.dev/)
-- Open an issue on [Github](https://github.com/evidence-dev/evidence)
+<DataTable data={revenue_by_week} />
+
+<AreaChart data={revenue_by_week} 
+x="week" 
+y="weekly_revenue"
+title="Sales per week"
+/>
+
+## Revenue per store chart
+ ```sql revenue_by_store
+SELECT * FROM analytics.revenue_by_store
+```
+
+<DataTable data={revenue_by_store} />
+
+<BarChart data={revenue_by_store}
+x="store_name"
+y="store_revenue"
+title="Sales per store"
+/>
+
+## Products sold by brand 
+ ```sql products_sold_by_brand
+SELECT * FROM analytics.products_sold_by_brand
+```
+
+<DataTable data={products_sold_by_brand} />
+
+<BarChart data={products_sold_by_brand}
+x="brand_name"
+y="product_sold_count"
+title="Products by brand"
+/>
+
+## Products sold per store chart
+ ```sql products_by_store
+SELECT * FROM analytics.products_by_store
+```
+
+<DataTable data={products_by_store} />
+
+<BarChart data={products_by_store}
+x="store_name"
+y="product_sold_count"
+title="Products per store"
+/>
+
+## Most popular products chart
+ ```sql most_sold_products
+SELECT * FROM analytics.most_sold_products
+limit 10
+```
+
+<DataTable data={most_sold_products} />
+
+<BarChart data={most_sold_products}
+x="product_name"
+y="product_sold_count"
+title="Popular Products"
+/>
+
+## Customers by city chart
+ ```sql customers_by_city
+SELECT * FROM analytics.customers_by_city
+```
+
+<DataTable data={customers_by_city} />
+
+<AreaChart data={customers_by_city}
+x="city"
+y="number_of_customers"
+title="Customers by city"
+/>
