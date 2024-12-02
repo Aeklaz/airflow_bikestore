@@ -2,7 +2,7 @@
 
 ## Revenue per day chart 
 ```sql revenue_by_day
-SELECT * FROM analytics.revenue_by_day
+SELECT * FROM bikestore_analytics.revenue_by_day
 ```
 <DataTable data={revenue_by_day} /> 
 
@@ -14,7 +14,7 @@ title="Sales per day"
 
 ## Revenue per week chart
 ```sql revenue_by_week
-SELECT * FROM analytics.revenue_by_week
+SELECT * FROM bikestore_analytics.revenue_by_week
 ```
 
 <DataTable data={revenue_by_week} />
@@ -27,7 +27,7 @@ title="Sales per week"
 
 ## Revenue per store chart
  ```sql revenue_by_store
-SELECT * FROM analytics.revenue_by_store
+SELECT * FROM bikestore_analytics.revenue_by_store
 ```
 
 <DataTable data={revenue_by_store} />
@@ -40,7 +40,7 @@ title="Sales per store"
 
 ## Products sold by brand 
  ```sql products_sold_by_brand
-SELECT * FROM analytics.products_sold_by_brand
+SELECT * FROM bikestore_analytics.products_sold_by_brand
 ```
 
 <DataTable data={products_sold_by_brand} />
@@ -53,7 +53,7 @@ title="Products by brand"
 
 ## Products sold per store chart
  ```sql products_by_store
-SELECT * FROM analytics.products_by_store
+SELECT * FROM bikestore_analytics.products_by_store
 ```
 
 <DataTable data={products_by_store} />
@@ -66,7 +66,7 @@ title="Products per store"
 
 ## Most popular products chart
  ```sql most_sold_products
-SELECT * FROM analytics.most_sold_products
+SELECT * FROM bikestore_analytics.most_sold_products
 limit 10
 ```
 
@@ -80,7 +80,7 @@ title="Popular Products"
 
 ## Customers by city chart
  ```sql customers_by_city
-SELECT * FROM analytics.customers_by_city
+SELECT * FROM bikestore_analytics.customers_by_city
 ```
 
 <DataTable data={customers_by_city} />
