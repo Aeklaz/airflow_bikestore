@@ -22,6 +22,7 @@ def backup_duckdb_to_s3():
         duckdb_path = os.getenv('DUCKDB_BACKUP_PATH')
         s3_bucket = os.getenv('S3_BACKUP_BUCKET')
         s3_prefix = os.getenv('S3_BACKUP_PREFIX')
+        evidence_path = os.getenv('EVIDENCE_PATH')
 
         # Validate required environment variables
         if not s3_bucket:
@@ -29,13 +30,16 @@ def backup_duckdb_to_s3():
 
         # Create timestamp for backup filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_filename = f"dev_duckdb_backup_{timestamp}.db"
+        backup_filename = f"dev_duckdb_backup_{timestamp}.duckdb"
         local_backup_path = f"/tmp/{backup_filename}"
+        
 
         # Create a local backup copy
         import shutil
         shutil.copy2(duckdb_path, local_backup_path)
+        shutil.copy2(duckdb_path, evidence_path)
         logger.info(f"Local backup created at {local_backup_path}")
+        logger.info(f"evidence dashboard copy created at {evidence_path}")
 
         # Initialize S3 client
         s3_client = boto3.client('s3')

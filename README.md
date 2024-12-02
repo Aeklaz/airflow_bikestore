@@ -15,18 +15,11 @@ You will need Python installed. This was all tested on Python 3.10.12
 From a virtual environment, run
 
 ```python
-pip install -e .'[dev]'
+pip install -r requirements.txt
 ```
 Most of the dependencies will be installed through Python.
 
 For Evidence.dev, you will need [nodejs](https://nodejs.org/en/download) installed
-
-Install [Sling] via Python pip for getting data from Postgres.
-
-```
-# On Mac, view the website for other platforms
-brew install slingdata-io/sling/sling
-```
 
 ## Visualization
 

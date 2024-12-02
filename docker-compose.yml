@@ -25,6 +25,7 @@ services:
     volumes:
       - ./airflow:/opt/airflow
       - ./dbt_bikestore:/opt/dbt
+      - ./evidence:/opt/evidence
 
     env_file:
       - path: .env
