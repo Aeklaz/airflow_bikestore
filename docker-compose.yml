@@ -1,4 +1,3 @@
-version: '4'
 
 services:
   postgres:
@@ -35,3 +34,11 @@ services:
 
     command: ["airflow", "standalone"]
 
+
+  evidence_dash:
+    image: evidence_image
+    volumes:
+      - ./evidence:/opt/evidence
+    ports:
+      - "3000:3000"
+    
