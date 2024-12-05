@@ -39,13 +39,6 @@ backup_task = PythonOperator(
     dag=dag
 )
 
-# Serve the dashboards from the container
-#dashboard_task = BashOperator(
-#    task_id = "dashboard_start",
-#    bash_command='''cd /opt/evidence && npm install && npm run sources && npm run dev -- --host 0.0.0.0
-#                    ''',
-#    dag=dag
-#)
 
 sling_task >> dbt_task >> backup_task 
 
