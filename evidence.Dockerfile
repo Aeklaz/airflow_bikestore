@@ -17,10 +17,10 @@ COPY evidence/package*.json ./
 RUN npm install
 
 # Copy the rest of the project files
-COPY evidence/ .
+#COPY evidence/ .
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Default command to run the application
-CMD ["bash", "-c", "npm run sources && npm run dev -- --host 0.0.0.0"]
+#CMD ["bash", "-c", "npm run sources && npm run dev -- --host 0.0.0.0"]

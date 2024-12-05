@@ -37,8 +37,14 @@ services:
 
   evidence_dash:
     image: evidence_image
+    depends_on:
+      - airflow_pipeline
     volumes:
       - ./evidence:/opt/evidence
     ports:
       - "3000:3000"
+    
+    #restart: always
+
+    command: ["bash", "-c", "npm run sources && npm run dev -- --host 0.0.0.0"]
     
