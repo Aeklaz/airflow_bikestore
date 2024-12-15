@@ -19,18 +19,18 @@ pip install -r requirements.txt
 ```
 Most of the dependencies will be installed through Python.
 
-For Evidence.dev, you will need [nodejs](https://nodejs.org/en/download) installed
 
-## Visualization
-
-Evidence.dev is used for visualization.
-
-First, go the `dbt_bikestore` folder
+## Building the images
+Build the airflow image
+Build the evidence.Dockerfile image 
 
 ```
-cd dbt_bikestore
-
-npm --prefix ./reports install
-npm --prefix ./reports run dev -- --port 4000
+docker build -t airflow_bikestore .
+docker build -f evidence.Dockerfile -t evidence_image .
 ```
+## Run the pipeline
+```
+docker-compose up
+```
+
 
